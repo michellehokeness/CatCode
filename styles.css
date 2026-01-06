@@ -1,0 +1,146 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    /* color: #333;
+    background-color: #dcd4d4; */
+}
+
+/* ------------------------------
+----- VARIABLES FOR HAM-NAV -----
+--------------------------------*/
+:root {
+    --bar-width: 35px; /* hamburger bars */
+    --bar-height: 4px;
+    --ham-gap: 4px;
+    --foreground: #333;
+    --background: #dcd4d4;
+    --ham-margin: 8px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--ham-gap) * 2); /* 3 total bars and 2 total gaps */
+}
+
+/* ------------------------------
+--- END VARIABLES FOR HAM-NAV ---
+--------------------------------*/
+
+/* ------------------------------
+------------ HAM-MENU -----------
+--------------------------------*/
+.ham-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237); /* square root of 2 */
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--ham-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--ham-margin);
+    right: var(--ham-margin);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.ham-menu.ham-menu:has(input:checked) {
+    --foreground: #fff;
+    --background: #333;
+}
+
+/* Accessibility styles */
+.ham-menu.ham-menu:has(input:focus-visible)::before,
+.ham-menu.ham-menu:has(input:focus-visible)::after,
+.ham-menu.ham-menu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+} 
+
+/* Hamburger bars styles */
+.ham-menu::before,
+.ham-menu::after,
+.ham-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 9999px;
+    transform-origin: left center; /* rotation will occur around left side of bar */
+    transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background-color var(--animation-timing); /* animation on center bar */
+}
+
+/* HAM-MENU INPUT STYLES */
+.ham-menu input {
+    appearance: none; /* hides the checkbox */
+    outline: none; /* removes the outline when hovered/tabbed on */
+    pointer-events: none; /* removes checkbox click capability - label will have that capability instead to check checkbox */
+}
+
+/* hamburger styles for ::before bar when checked */
+.ham-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+/* hamburger styles for ::after bar when checked */
+.ham-menu:has(input:checked)::after {
+    rotate: -45deg;
+     width: var(--x-width);
+     translate: 0 calc(var(--bar-height) / 2);
+}
+
+.ham-menu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+/* ------------------------------
+--------- END HAM-MENU ----------
+--------------------------------*/
+
+/* ------------------------------
+--------- SIDEBAR STYLES --------
+--------------------------------*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: translate var(--animation-timing);
+    translate: 700%;
+    padding: .5rem 1rem;
+    padding-top: calc(var(--hamburger-height) + var(--ham-margin) + 5rem);
+    background-color: var(--foreground);
+    color: var(--background);
+    min-width: 12rem;
+    min-height: 100vh;
+}
+
+.ham-menu:has(input:checked) + .sidebar {
+    translate: 0;
+}
+
+.sidebar nav ul li {
+    list-style-type: none;
+    
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: var(--background);
+
+}
+
+/* ------------------------------
+--------- END SIDEBAR ----------
+--------------------------------*/
+
+.logo {
+    width: 100px;
+    height: auto;
+}
