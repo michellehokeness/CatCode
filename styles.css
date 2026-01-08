@@ -120,13 +120,13 @@ body {
     top: 0;
     right: 0;
     transition: translate var(--animation-timing);
-    translate: 700%;
+    translate: 100%;
     padding: .5rem 1rem;
     padding-top: calc(var(--hamburger-height) + var(--ham-margin) + 5rem);
     background-color: var(--foreground);
     color: var(--background);
-    min-width: 20rem;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
 }
 
 .ham-menu:has(input:checked) + .sidebar {
@@ -160,5 +160,11 @@ body {
     position: fixed;
     width: 150px;
     height: auto;
+    transition: var(--animation-timing);
     z-index: 3;
+}
+
+/* Change logo color to white when menu is open */
+header:has(.ham-menu input:checked) .logo {
+  filter: invert(1);
 }
