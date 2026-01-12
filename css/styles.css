@@ -238,3 +238,15 @@ footer h3 {
 header:has(.ham-menu input:checked) .logo {
   filter: invert(1);
 }
+
+/* ------------------------------
+----- HOMEPAGE-TOP SECTION ------
+--------------------------------*/
+.cat-icon {
+    display: flex; 
+}
+
+.cat-icon a img {
+    width: 100%;
+    height: auto;
+}
