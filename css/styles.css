@@ -357,7 +357,10 @@ header:has(.ham-menu input:checked) .logo {
 /* ------------------------------
 ----- Helpful Tools Section -----
 --------------------------------*/
-
+.tools-title {
+    border-top: 1px solid #D3D3D3;
+    padding-top: 60px;
+}
 .tools-h3 {
     color: var(--accent-color);
     font-style: italic;
