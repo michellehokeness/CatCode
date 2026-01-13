@@ -39,7 +39,11 @@ main {
 }
 
 main h2 {
-    font-size: 22px;
+    font-size: 1.7em;
+    /* padding-top: 240px; */
+}
+
+main:first-of-type {
     padding-top: 240px;
 }
 
@@ -78,7 +82,7 @@ footer h3 {
 .section1 > p:first-of-type,
 .section2 > p:first-of-type,
 .section3 > p:first-of-type {
-    color: #ec8338;
+    color: var(--accent-color);
     font-weight: bold;
 }
 
@@ -87,6 +91,7 @@ footer h3 {
 ----- VARIABLES FOR HAM-NAV -----
 --------------------------------*/
 :root {
+    --accent-color: rgb(236, 131, 56);
     --bar-width: 35px; /* hamburger bars */
     --bar-height: 4px;
     --ham-gap: 4px;
@@ -249,4 +254,252 @@ header:has(.ham-menu input:checked) .logo {
 .cat-icon a img {
     width: 100%;
     height: auto;
+}
+
+
+/* ------------------------------
+------- Decoder Section --------
+--------------------------------*/
+/* ---  --- */
+.decoder-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.decoder-title {
+  border-top: 1px solid #D3D3D3;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-top: 60px;
+}
+
+.decoder-subtitle {
+  text-align: center;
+  color: #444;
+  margin-bottom: 50px;
+}
+
+/* --- Grid Layout --- */
+.decoder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+/* --- Card Styling --- */
+.decoder-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px 28px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.12),
+    0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Hover = lifted decoder panel */
+.decoder-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 16px 40px rgba(0,0,0,0.18),
+    0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Number */
+.decoder-num {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 1.1rem;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+/* Headings */
+.decoder-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.5rem;
+}
+
+.decoder-meta {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  margin-bottom: 14px;
+}
+
+/* Quote */
+.decoder-card blockquote {
+  font-style: italic;
+  color: #222;
+  /* border-left: 3px solid #000; */
+  padding-left: 12px;
+  margin: 18px 0;
+}
+
+/* List */
+.decoder-card ul {
+  padding-left: 1.2em;
+  margin: 0 auto;
+  width: fit-content;/* keeps bullets next to text */
+}
+
+.decoder-card li {
+  padding: 6px 0;
+  font-size: 0.95rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+/* ------------------------------
+----- Helpful Tools Section -----
+--------------------------------*/
+
+.tools-h3 {
+    color: var(--accent-color);
+    font-style: italic;
+    padding: 20px;
+}
+
+.with {
+    font-style: italic;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Card (decoder-like) */
+.product-card {
+  list-style: none;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.12),
+    0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+/* Hover lift (mouse) */
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 16px 40px rgba(0,0,0,0.18),
+    0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .product-card { transition: none; }
+  .product-card:hover { transform: none; }
+}
+
+/* Media */
+.product-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Body */
+.product-body {
+  padding: 22px 22px 24px;
+}
+
+.product-title {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+}
+
+.product-tag {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  color: #444;            /* keep contrast strong */
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.product-desc {
+  margin: 0 0 14px;
+  color: #222;
+  line-height: 1.4;
+}
+
+.product-price {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Actions */
+.product-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.product-actions .btn-add,
+.product-actions .btn-buy {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 10px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+/* Button styles */
+.btn-add {
+  background: #f1f1f1;
+  color: #000;
+  border: 1px solid #cfcfcf;
+}
+
+.btn-buy {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+/* Hover states */
+.btn-add:hover { background: #e4e4e4; }
+.btn-buy:hover { background: #333; border-color: #333; }
+
+/* Keyboard focus (VERY important) */
+.btn-add:focus-visible,
+.btn-buy:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+}
+
+/* Optional: make the entire card show a focus ring when focusing inside */
+.product-card:focus-within {
+  box-shadow:
+    0 0 0 3px rgba(0,0,0,0.35),
+    0 16px 40px rgba(0,0,0,0.18),
+    0 6px 16px rgba(0,0,0,0.12);
 }
