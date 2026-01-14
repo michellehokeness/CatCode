@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Code</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/gallery.css">
 </head>
 <body>
     <header>
@@ -35,11 +36,52 @@
      </section>
 
       <section class="second">
-        <img src="./images/glasses-cat.jpg" alt="black cat in glasses">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit voluptates sint facere nesciunt. Nam animi accusamus quasi molestias modi ab perferendis reprehenderit ea veniam laborum neque maiores accusantium nemo error officia, alias dicta itaque beatae mollitia unde ipsam aliquid praesentium? Sapiente corporis doloremque similique eos? Aperiam, dicta eius excepturi, incidunt ipsa itaque delectus quidem earum nostrum iusto, corrupti totam obcaecati reiciendis exercitationem aut rerum magnam libero sint quia blanditiis molestias doloribus omnis soluta? Laborum molestiae numquam neque nesciunt atque, quibusdam, ducimus, natus deleniti voluptatem adipisci a vel perferendis amet?
-       </section>
+  <img src="./images/glasses-cat.jpg" alt="black cat in glasses">
 
-       <section class="third">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit voluptates sint facere nesciunt. Nam animi accusamus quasi molestias modi ab perferendis reprehenderit ea veniam laborum neque maiores accusantium nemo error officia, alias dicta itaque beatae mollitia unde ipsam aliquid praesentium? Sapiente corporis doloremque similique eos? Aperiam, dicta eius excepturi, incidunt ipsa itaque delectus quidem earum nostrum iusto, corrupti totam obcaecati reiciendis exercitationem aut rerum magnam libero sint quia blanditiis molestias doloribus omnis soluta? Laborum molestiae numquam neque nesciunt atque, quibusdam, ducimus, natus deleniti voluptatem adipisci a vel perferendis amet?
-      </section>
+  <form id="uploadForm" novalidate>
+    <label for="files">Select up to 2 files (JPG/PNG, max 1MB each)</label>
+    <input
+      type="file"
+      id="files"
+      name="files"
+      multiple
+      accept="image/jpeg, image/png"
+      aria-describedby="uploadHelp uploadStatus"
+    >
+
+    <p id="uploadHelp" class="help-text">
+      Images will be center-cropped to 350×350. You can delete before finalizing.
+    </p>
+
+    <label for="comment">Short comment (max 150 words)</label>
+    <textarea
+      id="comment"
+      name="comment"
+      rows="4"
+      maxlength="900"
+      aria-describedby="commentHelp commentCount"
+      placeholder="Optional: tell us something about your cat..."
+    ></textarea>
+
+    <p id="commentHelp" class="help-text">
+      Keep it short—about 150 words max.
+    </p>
+    <p id="commentCount" class="help-text" aria-live="polite">0 / 150 words</p>
+
+    <div class="actions">
+      <button type="button" id="finalizeBtn" disabled>Submit / Finalize</button>
+      <button type="button" id="resetBtn">Clear</button>
+    </div>
+
+    <p id="uploadStatus" class="sr-status" aria-live="polite"></p>
+
+    <output id="result" aria-label="Selected image previews"></output>
+  </form>
+
+  <script src="./js/gallery.js"></script>
+</section>
+
+
     </main>
 
     <footer>
