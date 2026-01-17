@@ -6,3 +6,9 @@
 main h1 {
   padding-top: 150px;
 } */
+
+section {
+  text-align: left;
+  font-size: 1.2em;
+}
+

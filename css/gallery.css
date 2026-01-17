@@ -1,3 +1,7 @@
+section {
+  font-size: 1.2em;
+  text-align: left;
+}
 .second {
   max-width: 800px;
   margin: 0 auto;

@@ -47,6 +47,19 @@ main:first-of-type {
     padding-top: 240px;
 }
 
+.main-img img:first-of-type {
+    width: 60%;
+    height: auto;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+.para {
+    text-indent: 50px;
+}
+
 footer {
     display: block;
     background-color: var(--foreground);
@@ -248,7 +261,9 @@ header:has(.ham-menu input:checked) .logo {
 ----- HOMEPAGE-TOP SECTION ------
 --------------------------------*/
 .cat-icon {
-    display: flex; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
 }
 
 .cat-icon a img {
@@ -506,3 +521,43 @@ header:has(.ham-menu input:checked) .logo {
     0 16px 40px rgba(0,0,0,0.18),
     0 6px 16px rgba(0,0,0,0.12);
 }
+
+
+/* ------------------------------
+----- media query desktop -----
+--------------------------------*/
+@media screen and (min-width: 700px) {
+   .ham-menu {
+        display: none;
+   } 
+   nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding-top: 40px;
+   }
+
+   .desktop-nav {
+        display: block;
+   }
+
+   .desktop-nav ul li {
+        list-style-type: none;
+        font-weight: bold;
+   }
+
+   .desktop-nav ul li a {
+        color: var(--foreground);
+        text-decoration: none;
+   }
+
+   .desktop-nav ul li a:hover {
+        color: var(--accent-color);
+        
+   }
+}
+
+/* ------------------------------
+---- End media query desktop ----
+--------------------------------*/
